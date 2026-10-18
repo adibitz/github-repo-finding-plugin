@@ -1,0 +1,3 @@
+# Keep LF everywhere so the bundled server and configs work the same on Windows, macOS and Linux.
+* text=auto eol=lf
+*.png binary

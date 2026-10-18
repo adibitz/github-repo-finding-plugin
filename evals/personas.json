@@ -1,0 +1,76 @@
+{
+  "description": "Test requests for judging result quality (PLAN.md §11, phase 7). For each, run /find-github-tool and check: are the expected tools in the top 5, are there zero made-up tools, zero discontinued picks, and does an everyday user get an easy way to start?",
+  "checkedOn": "2026-10-18",
+  "cases": [
+    {
+      "id": "everyday-invoices",
+      "persona": "Shop owner, not technical",
+      "request": "I need a free app to make invoices for my small shop",
+      "answers": { "where": "browser", "budget": "free", "tech": "click install", "mustHaves": ["recurring invoices"] },
+      "expectAnyOf": ["invoiceninja", "InvoiceShelf", "InvoicePlane", "SolidInvoice", "Akaunting", "dolibarr"]
+    },
+    {
+      "id": "everyday-photos",
+      "persona": "Family photographer, not technical",
+      "request": "A private alternative to Google Photos to back up my family's phone pictures",
+      "answers": { "where": "my own server", "budget": "small monthly cost ok", "tech": "can follow steps" },
+      "expectAnyOf": ["immich", "photoprism", "ente", "nextcloud"]
+    },
+    {
+      "id": "everyday-notes",
+      "persona": "Student",
+      "request": "Free note-taking app like Notion that works offline on Windows and Android",
+      "answers": { "where": "computer + phone", "budget": "free", "tech": "click install" },
+      "expectAnyOf": ["AppFlowy", "AFFiNE", "Joplin", "Anytype", "logseq", "siyuan"]
+    },
+    {
+      "id": "everyday-video-calls",
+      "persona": "Community organiser",
+      "request": "Video meetings where guests can join from the browser without an account",
+      "answers": { "where": "browser", "budget": "free", "tech": "click install" },
+      "expectAnyOf": ["jitsi-meet", "bigbluebutton", "galene"]
+    },
+    {
+      "id": "intermediate-crm",
+      "persona": "Small agency, some technical help",
+      "request": "Self-hosted CRM to replace Salesforce for a 5-person team",
+      "answers": { "where": "my own server", "budget": "free", "tech": "can follow steps", "mustHaves": ["deal pipeline", "email integration"] },
+      "expectAnyOf": ["twenty", "espocrm", "SuiteCRM", "krayin", "odoo"]
+    },
+    {
+      "id": "dev-pdf-python",
+      "persona": "Python developer",
+      "request": "MIT or Apache licensed Python library to extract text from PDFs",
+      "answers": { "mode": "library", "languages": ["Python"], "licenses": ["MIT", "Apache-2.0"] },
+      "expectAnyOf": ["pdfplumber", "pdfminer.six", "pypdf", "docling"]
+    },
+    {
+      "id": "dev-rate-limit-go",
+      "persona": "Go developer",
+      "request": "A well-maintained rate limiting library for Go HTTP servers",
+      "answers": { "mode": "library", "languages": ["Go"] },
+      "expectAnyOf": ["ulule/limiter", "didip/tollbooth", "go-redis/redis_rate", "uber-go/ratelimit"]
+    },
+    {
+      "id": "dev-vscode-markdown",
+      "persona": "Writer using VS Code",
+      "request": "A VS Code extension for previewing and editing Markdown tables",
+      "answers": { "mode": "extension", "extensionFor": "vscode" },
+      "expectAnyOf": ["markdown-all-in-one", "markdown-table", "markdown-preview-enhanced"]
+    },
+    {
+      "id": "ai-transcription",
+      "persona": "Podcaster",
+      "request": "Transcribe my podcast audio to text on my own computer for free",
+      "answers": { "mode": "ai", "where": "computer", "tech": "can follow steps" },
+      "expectAnyOf": ["whisper", "whisper.cpp", "faster-whisper", "buzz", "WhisperX"]
+    },
+    {
+      "id": "alt-zapier",
+      "persona": "Operations manager",
+      "request": "Open-source alternative to Zapier for automating workflows",
+      "answers": { "where": "browser or own server", "budget": "small monthly cost ok", "tech": "can follow steps" },
+      "expectAnyOf": ["n8n", "activepieces", "automatisch", "huginn", "windmill"]
+    }
+  ]
+}

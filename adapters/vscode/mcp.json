@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "find-github-tool": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["ABSOLUTE/PATH/TO/find-github-tool/dist/find-github-tool.mjs", "serve"]
+    }
+  }
+}

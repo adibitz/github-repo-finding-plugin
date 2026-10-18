@@ -1,0 +1,17 @@
+{
+  "name": "find-github-tool",
+  "owner": {
+    "name": "Aditya",
+    "email": "aditya@postessia.in"
+  },
+  "description": "Find the right open-source tool for any need, in plain language.",
+  "plugins": [
+    {
+      "name": "find-github-tool",
+      "source": "./",
+      "description": "Type /find-github-tool to find the right open-source tool, app, library, add-on or AI model.",
+      "category": "productivity",
+      "tags": ["github", "open-source", "search", "alternatives"]
+    }
+  ]
+}

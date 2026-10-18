@@ -1,0 +1,39 @@
+{
+  "manifest_version": "0.3",
+  "name": "find-github-tool",
+  "display_name": "Find GitHub Tool",
+  "version": "0.1.0",
+  "description": "Find the right open-source tool, app, library, add-on or AI model for any need, in plain language.",
+  "long_description": "Searches GitHub plus 15+ other sources (app stores, self-hosting catalogs, package registries, curated lists, community discussion), checks maintenance health, setup difficulty and license, and helps Claude explain the best picks in plain words. Use the find-github-tool prompt to start.",
+  "author": {
+    "name": "Aditya",
+    "email": "aditya@postessia.in"
+  },
+  "license": "MIT",
+  "keywords": ["github", "open-source", "alternatives", "self-hosted", "tool-finder"],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/find-github-tool.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/find-github-tool.mjs", "serve"],
+      "env": {
+        "GITHUB_TOKEN": "${user_config.github_token}"
+      }
+    }
+  },
+  "user_config": {
+    "github_token": {
+      "type": "string",
+      "title": "GitHub token (optional)",
+      "description": "A GitHub personal access token with no scopes. Raises GitHub limits from 60 to 5,000 calls/hour. Leave empty to use it without one.",
+      "required": false,
+      "sensitive": true
+    }
+  },
+  "compatibility": {
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  }
+}

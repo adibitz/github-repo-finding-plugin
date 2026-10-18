@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "find-github-tool": {
+      "command": "node",
+      "args": ["ABSOLUTE/PATH/TO/find-github-tool/dist/find-github-tool.mjs", "serve"]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+# Add to ~/.codex/config.toml. env_vars forwards your GITHUB_TOKEN without storing it here.
+[mcp_servers.find-github-tool]
+command = "node"
+args = ["ABSOLUTE/PATH/TO/find-github-tool/dist/find-github-tool.mjs", "serve"]
+env_vars = ["GITHUB_TOKEN", "STACKEXCHANGE_KEY"]
