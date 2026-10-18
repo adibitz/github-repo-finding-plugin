@@ -10,13 +10,22 @@
     "email": "aditya@postessia.in"
   },
   "license": "MIT",
-  "keywords": ["github", "open-source", "alternatives", "self-hosted", "tool-finder"],
+  "keywords": [
+    "github",
+    "open-source",
+    "alternatives",
+    "self-hosted",
+    "tool-finder"
+  ],
   "server": {
     "type": "node",
     "entry_point": "dist/find-github-tool.mjs",
     "mcp_config": {
       "command": "node",
-      "args": ["${__dirname}/dist/find-github-tool.mjs", "serve"],
+      "args": [
+        "${__dirname}/dist/find-github-tool.mjs",
+        "serve"
+      ],
       "env": {
         "GITHUB_TOKEN": "${user_config.github_token}"
       }
@@ -35,5 +44,11 @@
     "runtimes": {
       "node": ">=20.0.0"
     }
-  }
+  },
+  "homepage": "https://github.com/adibitz/github-repo-finding-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adibitz/github-repo-finding-plugin.git"
+  },
+  "support": "https://github.com/adibitz/github-repo-finding-plugin/issues"
 }

@@ -46,5 +46,13 @@
     "esbuild": "0.28.2",
     "typescript": "6.0.3",
     "vitest": "4.1.12"
+  },
+  "homepage": "https://github.com/adibitz/github-repo-finding-plugin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adibitz/github-repo-finding-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adibitz/github-repo-finding-plugin/issues"
   }
 }

@@ -7,12 +7,25 @@
     "name": "Aditya",
     "email": "aditya@postessia.in"
   },
+  "homepage": "https://github.com/adibitz/github-repo-finding-plugin",
+  "repository": "https://github.com/adibitz/github-repo-finding-plugin",
   "license": "MIT",
-  "keywords": ["github", "open-source", "alternatives", "self-hosted", "tool-finder", "mcp", "skill"],
+  "keywords": [
+    "github",
+    "open-source",
+    "alternatives",
+    "self-hosted",
+    "tool-finder",
+    "mcp",
+    "skill"
+  ],
   "mcpServers": {
     "finder": {
       "command": "node",
-      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/find-github-tool.mjs", "serve"],
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/dist/find-github-tool.mjs",
+        "serve"
+      ],
       "env": {
         "GITHUB_TOKEN": "${user_config.github_token}",
         "FGT_CACHE_DIR": "${CLAUDE_PLUGIN_DATA}"

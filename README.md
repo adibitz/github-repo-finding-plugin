@@ -15,6 +15,29 @@ The assistant then:
 
 It works in **Claude Code, Claude Desktop, claude.ai, Google Antigravity, Cursor, VS Code (Copilot), Windsurf, Gemini CLI, Codex and ChatGPT**, and any other app that supports MCP.
 
+## Quick install
+
+**Claude Code:** run these inside Claude Code, then type `/find-github-tool`:
+
+```
+/plugin marketplace add adibitz/github-repo-finding-plugin
+/plugin install find-github-tool@find-github-tool
+```
+
+**Antigravity, Cursor, VS Code, Claude Desktop, Windsurf, Gemini CLI, Codex:** clone the repo:
+
+```bash
+git clone https://github.com/adibitz/github-repo-finding-plugin.git
+```
+
+Then run the installer for your app (swap `antigravity` for your app id, or use `all`):
+
+```bash
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app antigravity
+```
+
+Restart the app afterwards. Details for each app are below.
+
 ## Supported AI tools
 
 | AI tool | How you start it | Setup |
@@ -35,9 +58,11 @@ It works in **Claude Code, Claude Desktop, claude.ai, Google Antigravity, Cursor
 
 ## Install
 
-> **Before you start:** replace `YOUR-GITHUB-USER` below with the GitHub account that hosts this
-> repository. You need [Node.js](https://nodejs.org) 20 or newer for every option except
-> claude.ai. Check with `node --version`.
+> **Before you start:** you need [Node.js](https://nodejs.org) 20 or newer for every option
+> except claude.ai. Check with `node --version`.
+>
+> Repository: **https://github.com/adibitz/github-repo-finding-plugin**. The repo is called
+> `github-repo-finding-plugin`; the plugin inside it is called `find-github-tool`.
 
 ### Step 1: Get the files (all apps except Claude Code)
 
@@ -45,7 +70,7 @@ Claude Code downloads the plugin for you, so skip to [Claude Code](#claude-code)
 other app, put a copy of this project somewhere permanent (not a temporary or Downloads folder):
 
 ```bash
-git clone https://github.com/YOUR-GITHUB-USER/find-github-tool.git
+git clone https://github.com/adibitz/github-repo-finding-plugin.git
 ```
 
 No `npm install` is needed: the ready-to-run server is already in `dist/`.
@@ -53,7 +78,7 @@ No `npm install` is needed: the ready-to-run server is already in `dist/`.
 ### Step 2: Run the installer for your app
 
 ```bash
-node find-github-tool/dist/find-github-tool.mjs install --app <app-id>
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app <app-id>
 ```
 
 App ids: `claude-desktop`, `antigravity`, `cursor`, `vscode`, `windsurf`, `gemini-cli`, `codex`,
@@ -66,7 +91,7 @@ The installer:
 - prints what to do next (usually: restart the app).
 
 Preview without changing anything: add `--dry-run`. Remove it again: `uninstall --app <app-id>`.
-Check everything works: `node find-github-tool/dist/find-github-tool.mjs doctor`.
+Check everything works: `node github-repo-finding-plugin/dist/find-github-tool.mjs doctor`.
 
 The sections below give the details per app, including how to set it up by hand.
 
@@ -80,14 +105,14 @@ JetBrains extensions.
 **Install from GitHub.** Inside Claude Code, run:
 
 ```
-/plugin marketplace add YOUR-GITHUB-USER/find-github-tool
+/plugin marketplace add adibitz/github-repo-finding-plugin
 /plugin install find-github-tool@find-github-tool
 ```
 
 Or from a terminal:
 
 ```bash
-claude plugin marketplace add YOUR-GITHUB-USER/find-github-tool
+claude plugin marketplace add adibitz/github-repo-finding-plugin
 ```
 
 ```bash
@@ -97,14 +122,14 @@ claude plugin install find-github-tool@find-github-tool
 **Install from a local copy** (after `git clone`):
 
 ```
-/plugin marketplace add ./find-github-tool
+/plugin marketplace add ./github-repo-finding-plugin
 /plugin install find-github-tool@find-github-tool
 ```
 
 **Try it for one session without installing:**
 
 ```bash
-claude --plugin-dir ./find-github-tool
+claude --plugin-dir ./github-repo-finding-plugin
 ```
 
 **Use it:** type `/find-github-tool` followed by what you need, for example
@@ -129,7 +154,7 @@ build the file yourself, see [adapters/claude-desktop](adapters/claude-desktop/R
 **Option B: installer**
 
 ```bash
-node find-github-tool/dist/find-github-tool.mjs install --app claude-desktop
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app claude-desktop
 ```
 
 Then quit and reopen Claude Desktop.
@@ -143,7 +168,7 @@ Then quit and reopen Claude Desktop.
   "mcpServers": {
     "find-github-tool": {
       "command": "node",
-      "args": ["C:/path/to/find-github-tool/dist/find-github-tool.mjs", "serve"]
+      "args": ["C:/path/to/github-repo-finding-plugin/dist/find-github-tool.mjs", "serve"]
     }
   }
 }
@@ -168,7 +193,7 @@ relies on Claude's web search and does fewer checks (no health or security score
 ### Google Antigravity (IDE and CLI)
 
 ```bash
-node find-github-tool/dist/find-github-tool.mjs install --app antigravity
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app antigravity
 ```
 
 This registers the server in `~/.gemini/config/mcp_config.json` and copies the skill to
@@ -183,7 +208,7 @@ Antigravity.
   "mcpServers": {
     "find-github-tool": {
       "command": "node",
-      "args": ["C:/path/to/find-github-tool/dist/find-github-tool.mjs", "serve"]
+      "args": ["C:/path/to/github-repo-finding-plugin/dist/find-github-tool.mjs", "serve"]
     }
   }
 }
@@ -199,7 +224,7 @@ project only, copy it to `<project>/.agents/skills/` instead.
 ### Cursor
 
 ```bash
-node find-github-tool/dist/find-github-tool.mjs install --app cursor
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app cursor
 ```
 
 **By hand:** add to `~/.cursor/mcp.json`:
@@ -210,7 +235,7 @@ node find-github-tool/dist/find-github-tool.mjs install --app cursor
     "find-github-tool": {
       "type": "stdio",
       "command": "node",
-      "args": ["C:/path/to/find-github-tool/dist/find-github-tool.mjs", "serve"],
+      "args": ["C:/path/to/github-repo-finding-plugin/dist/find-github-tool.mjs", "serve"],
       "env": { "GITHUB_TOKEN": "${env:GITHUB_TOKEN}" }
     }
   }
@@ -227,7 +252,7 @@ find-github-tool skill to find a VS Code extension for Markdown tables."*
 ### VS Code + GitHub Copilot
 
 ```bash
-node find-github-tool/dist/find-github-tool.mjs install --app vscode
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app vscode
 ```
 
 **By hand:** Command Palette → **MCP: Open User Configuration**, then add (note the key is
@@ -239,7 +264,7 @@ node find-github-tool/dist/find-github-tool.mjs install --app vscode
     "find-github-tool": {
       "type": "stdio",
       "command": "node",
-      "args": ["C:/path/to/find-github-tool/dist/find-github-tool.mjs", "serve"]
+      "args": ["C:/path/to/github-repo-finding-plugin/dist/find-github-tool.mjs", "serve"]
     }
   }
 }
@@ -254,7 +279,7 @@ Then copy `skills/find-github-tool` into `~/.agents/skills/` (or `~/.copilot/ski
 ### Windsurf / Devin Desktop
 
 ```bash
-node find-github-tool/dist/find-github-tool.mjs install --app windsurf
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app windsurf
 ```
 
 **By hand:** add the same `mcpServers` block as for Antigravity to
@@ -267,7 +292,7 @@ versions use `~/.codeium/windsurf/mcp_config.json`. Copy `skills/find-github-too
 ### Gemini CLI
 
 ```bash
-node find-github-tool/dist/find-github-tool.mjs install --app gemini-cli
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app gemini-cli
 ```
 
 **By hand:** add the same `mcpServers` block as for Antigravity to `~/.gemini/settings.json`, and
@@ -283,7 +308,7 @@ copy `skills/find-github-tool` into `~/.agents/skills/`.
 ### OpenAI Codex CLI
 
 ```bash
-node find-github-tool/dist/find-github-tool.mjs install --app codex
+node github-repo-finding-plugin/dist/find-github-tool.mjs install --app codex
 ```
 
 **By hand:** add to `~/.codex/config.toml`:
@@ -291,7 +316,7 @@ node find-github-tool/dist/find-github-tool.mjs install --app codex
 ```toml
 [mcp_servers.find-github-tool]
 command = "node"
-args = ["C:/path/to/find-github-tool/dist/find-github-tool.mjs", "serve"]
+args = ["C:/path/to/github-repo-finding-plugin/dist/find-github-tool.mjs", "serve"]
 env_vars = ["GITHUB_TOKEN", "STACKEXCHANGE_KEY"]
 ```
 
@@ -307,7 +332,7 @@ env_vars = ["GITHUB_TOKEN", "STACKEXCHANGE_KEY"]
 ChatGPT only connects to **remote HTTPS** MCP servers, so you run the server yourself:
 
 ```bash
-FGT_HTTP_TOKEN=<long-random-secret> node find-github-tool/dist/find-github-tool.mjs serve --http --host 0.0.0.0 --port 3333
+FGT_HTTP_TOKEN=<long-random-secret> node github-repo-finding-plugin/dist/find-github-tool.mjs serve --http --host 0.0.0.0 --port 3333
 ```
 
 Put it behind HTTPS (Caddy, nginx or a tunnel), then in ChatGPT add a custom MCP server with the
@@ -321,7 +346,7 @@ beyond localhost without `FGT_HTTP_TOKEN`. Full steps: [adapters/chatgpt](adapte
 Any app that supports MCP servers over stdio can use it. Register this command:
 
 ```
-node /path/to/find-github-tool/dist/find-github-tool.mjs serve
+node /path/to/github-repo-finding-plugin/dist/find-github-tool.mjs serve
 ```
 
 Then give the AI the playbook in one of these ways:
